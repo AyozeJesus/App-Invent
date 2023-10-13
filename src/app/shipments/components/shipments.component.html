@@ -1,0 +1,42 @@
+<div>
+  <h2>Envíos disponibles:</h2>
+  <form (ngSubmit)="searchShipment()" #searchForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="shipmentId"
+        name="shipmentId"
+        placeholder="Buscar por ID"
+      />
+    </mat-form-field>
+    <button mat-button type="submit">Buscar</button>
+  </form>
+  <div *ngIf="selectedShipment !== null">
+    <ul>
+      <li>ID: {{ selectedShipment.id }}</li>
+      <li>Dirección de destino: {{ selectedShipment.destination_address }}</li>
+      <li>Código postal: {{ selectedShipment.postal_code }}</li>
+      <li>Nombre del destinatario: {{ selectedShipment.recipient_name }}</li>
+      <li>Nombre del remitente: {{ selectedShipment.sender_name }}</li>
+      <li>Peso (kg): {{ selectedShipment.weight_kg }}</li>
+      <li>Compañía de envío: {{ selectedShipment.shipping_company }}</li>
+      <li>Categoría del paquete: {{ selectedShipment.package_category }}</li>
+      <li>Precio: {{ selectedShipment.price }}</li>
+    </ul>
+  </div>
+  <div *ngIf="showInvalidInputMessage">
+    Por favor, ingrese un número entero positivo válido.
+  </div>
+  <div *ngIf="showNotFoundMessage">No se encontró el envío.</div>
+  <button mat-raised-button (click)="toggleAllShipments()">
+    {{ showAll ? "Ocultar Todos los Envíos" : "Mostrar Todos los Envíos" }}
+  </button>
+  <div *ngIf="showAll">
+    <ul>
+      <li *ngFor="let shipment of data">
+        {{ shipment | json }}
+      </li>
+    </ul>
+  </div>
+</div>
