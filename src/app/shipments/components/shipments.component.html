@@ -14,15 +14,9 @@
   </form>
   <div *ngIf="selectedShipment !== null">
     <ul>
-      <li>ID: {{ selectedShipment.id }}</li>
-      <li>Dirección de destino: {{ selectedShipment.destination_address }}</li>
-      <li>Código postal: {{ selectedShipment.postal_code }}</li>
-      <li>Nombre del destinatario: {{ selectedShipment.recipient_name }}</li>
-      <li>Nombre del remitente: {{ selectedShipment.sender_name }}</li>
-      <li>Peso (kg): {{ selectedShipment.weight_kg }}</li>
-      <li>Compañía de envío: {{ selectedShipment.shipping_company }}</li>
-      <li>Categoría del paquete: {{ selectedShipment.package_category }}</li>
-      <li>Precio: {{ selectedShipment.price }}</li>
+      <li>
+        {{ selectedShipment | json }}
+      </li>
     </ul>
   </div>
   <div *ngIf="showInvalidInputMessage">
@@ -39,4 +33,62 @@
       </li>
     </ul>
   </div>
+</div>
+
+<div>
+  <h2>Crear Envío</h2>
+  <form (ngSubmit)="createShipment()" #shipmentForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="newShipment.destination_address"
+        name="destination_address"
+        placeholder="Dirección de Destino"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="newShipment.postal_code"
+        name="postal_code"
+        placeholder="Código Postal"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="newShipment.recipient_name"
+        name="recipient_name"
+        placeholder="Nombre del Destinatario"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="newShipment.sender_name"
+        name="sender_name"
+        placeholder="Nombre del Remitente"
+        required
+      />
+    </mat-form-field>
+    <p>Peso:</p>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="newShipment.weight_kg"
+        name="weight_kg"
+        placeholder="Peso (kg)"
+        required
+      />
+    </mat-form-field>
+    <button mat-button type="submit">Crear Envío</button>
+  </form>
 </div>

@@ -11,9 +11,22 @@ export class ShipmentsComponent implements OnInit {
   data: Shipment[] = [];
   shipmentId: number | null = null;
   showAll: boolean = false;
-  selectedShipment: Shipment | null = null; // Variable para almacenar el envío seleccionado
+  selectedShipment: Shipment | null = null;
   showNotFoundMessage: boolean = false;
   showInvalidInputMessage = false;
+
+  newShipment: Shipment = {
+    // Propiedad para almacenar los detalles del nuevo envío
+    id: 0, // Puedes establecerlo en 0 o null, ya que se asignará en el servidor
+    destination_address: '',
+    postal_code: '',
+    recipient_name: '',
+    sender_name: '',
+    weight_kg: 0,
+    shipping_company: '',
+    package_category: '',
+    price: 0,
+  };
 
   constructor(private shipmentService: ShipmentsService) {}
 
@@ -25,6 +38,18 @@ export class ShipmentsComponent implements OnInit {
     this.shipmentService.listShipments().subscribe((shipments) => {
       this.data = shipments;
     });
+  }
+
+  createShipment() {
+    this.shipmentService.createShipment(this.newShipment).subscribe(
+      (shipmentId) => {
+        console.log('Envío creado con éxito. ID: ' + shipmentId);
+        // Puedes realizar alguna acción adicional aquí, como limpiar el formulario.
+      },
+      (error) => {
+        console.error('Error al crear el envío: ', error);
+      }
+    );
   }
 
   isValidShipmentId(id: number): boolean {
