@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Informacion',
     iconName: 'users',
-    route: '/ui-components/list_employer', 
+    route: '/ui-components/list_employee', 
   },
   {
     navCap: 'Empresas externas',

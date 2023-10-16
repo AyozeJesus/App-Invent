@@ -15,7 +15,7 @@ import { AppShipmentListComponent } from './listShipment/listShipment.component'
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppShipmentCreateComponent } from './createShipment/createShipment.component';
-import { AppEmployerListComponent } from './listEmployer/listEmployer.component';
+import { AppEmployeeListComponent } from './listEmployee/listEmployee.component';
 import { AppPackageListComponent } from './listPackage/listPackage.component';
 import { AppCarrierComponent } from './listCarrier/listCarrier.component';
 
@@ -33,7 +33,7 @@ import { AppCarrierComponent } from './listCarrier/listCarrier.component';
     AppShipmentListComponent,
     AppShipmentCreateComponent,
     AppPackageListComponent,
-    AppEmployerListComponent,
+    AppEmployeeListComponent,
     AppCarrierComponent,
   ],
 })

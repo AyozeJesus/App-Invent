@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 import { AppShipmentListComponent } from './listShipment/listShipment.component';
 import { AppShipmentCreateComponent } from './createShipment/createShipment.component';
 import { AppPackageListComponent } from './listPackage/listPackage.component';
-import { AppEmployerListComponent } from './listEmployer/listEmployer.component';
+import { AppEmployeeListComponent } from './listEmployee/listEmployee.component';
 import { AppCarrierComponent } from './listCarrier/listCarrier.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 AuthGuard;
@@ -29,9 +29,9 @@ export const UiComponentsRoutes: Routes = [
         component: AppPackageListComponent,
       },
       {
-        path: 'list_employer',
+        path: 'list_employee',
         canActivate: [AuthGuard],
-        component: AppEmployerListComponent,
+        component: AppEmployeeListComponent,
       },
       {
         path: 'list_carrier',
