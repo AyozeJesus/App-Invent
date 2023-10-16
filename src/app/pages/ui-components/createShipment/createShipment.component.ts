@@ -5,7 +5,6 @@ import { ShipmentsService } from 'src/app/services/shipments.service';
 @Component({
   selector: 'app-shipments',
   templateUrl: './createShipment.component.html',
-  styleUrls: ['./createShipment.component.css'],
 })
 export class AppShipmentCreateComponent implements OnInit {
   data: Shipment[] = [];
@@ -21,7 +20,6 @@ export class AppShipmentCreateComponent implements OnInit {
     shipping_company: '',
     package_category: '',
     price: 0,
-    created_at: new Date(),
   };
 
   constructor(private shipmentService: ShipmentsService) {}
@@ -40,14 +38,18 @@ export class AppShipmentCreateComponent implements OnInit {
   createShipment() {
     this.shipmentService.createShipment(this.newShipment).subscribe(
       (shipmentId) => {
-        window.location.reload();
-
         console.log('Envío creado con éxito. ID: ' + shipmentId);
+        // Puedes realizar alguna acción adicional aquí, como limpiar el formulario.
       },
       (error) => {
         console.error('Error al crear el envío: ', error);
       }
     );
+  }
+
+  isValidShipmentId(id: number): boolean {
+    // Verifica si es un número entero positivo
+    return Number.isInteger(id) && id > 0;
   }
 
   toggleBadgeVisibility() {

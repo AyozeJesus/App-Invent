@@ -23,20 +23,20 @@ export const navItems: NavItem[] = [
     route: '/ui-components/create_shipment',
   },
   {
-    navCap: 'Paquetes',
-  },
-  {
-    displayName: 'Tipos de paquetes',
-    iconName: 'box',
-    route: '/ui-components/list_package', 
-  },
-  {
     navCap: 'Trabajadores',
   },
   {
     displayName: 'Informacion',
     iconName: 'users',
-    route: '/ui-components/list_employer', 
+    route: '/ui-components/create_shipment', //Añadir ruta para informacion de trabajadores
+  },
+  {
+    navCap: 'Paquetes',
+  },
+  {
+    displayName: 'Tipos de paquetes',
+    iconName: 'box',
+    route: '/ui-components/create_shipment', //Añadir ruta informacion de paquetes
   },
   {
     navCap: 'Empresas externas',
@@ -44,6 +44,6 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Transportistas',
     iconName: 'truck',
-    route: '/ui-components/list_carrier', 
+    route: '/ui-components/create_shipment', //Añadir ruta informacion de paquetes
   },
 ];

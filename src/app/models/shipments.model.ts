@@ -8,5 +8,4 @@ export interface Shipment {
   shipping_company: string;
   package_category: string;
   price: number;
-  created_at: Date;
 }

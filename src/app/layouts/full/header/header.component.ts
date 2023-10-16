@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,7 +23,4 @@ export class HeaderComponent {
   showFiller = false;
 
   constructor(public dialog: MatDialog) {}
-  logout(): void {
-    localStorage.removeItem('token');
-  }
 }

@@ -4,7 +4,6 @@
   </mat-card-header>
   <mat-card class="b-1 shadow-none">
     <mat-card-content>
-      <div class="form-label">Dirección de Destino:</div>
       <form (ngSubmit)="createShipment()" #shipmentForm="ngForm">
         <mat-form-field>
           <input
@@ -12,44 +11,41 @@
             type="text"
             [(ngModel)]="newShipment.destination_address"
             name="destination_address"
+            placeholder="Dirección de Destino"
             required
           />
         </mat-form-field>
-
-        <div class="form-label">Código postal:</div>
         <mat-form-field>
           <input
             matInput
             type="text"
             [(ngModel)]="newShipment.postal_code"
             name="postal_code"
+            placeholder="Código Postal"
             required
           />
         </mat-form-field>
-
-        <div class="form-label">Nombre del destinatario</div>
         <mat-form-field>
           <input
             matInput
             type="text"
             [(ngModel)]="newShipment.recipient_name"
             name="recipient_name"
+            placeholder="Nombre del Destinatario"
             required
           />
         </mat-form-field>
-
-        <div class="form-label">Nombre del remitente</div>
         <mat-form-field>
           <input
             matInput
             type="text"
             [(ngModel)]="newShipment.sender_name"
             name="sender_name"
+            placeholder="Nombre del Remitente"
             required
           />
         </mat-form-field>
-
-        <div class="form-label">Peso:</div>
+        <p>Peso:</p>
         <mat-form-field>
           <input
             matInput
@@ -60,8 +56,7 @@
             required
           />
         </mat-form-field>
-
-        <button mat-raised-button type="submit">Crear Envío</button>
+        <button mat-button type="submit">Crear Envío</button>
       </form>
     </mat-card-content>
   </mat-card>

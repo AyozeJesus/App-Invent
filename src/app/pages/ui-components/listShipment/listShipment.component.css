@@ -1,8 +1,0 @@
-.shipment-info-list li {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.shipment-info-list li strong {
-  font-weight: bold; /* Esto hará que el texto en <strong> sea negrita */
-}

@@ -5,7 +5,6 @@ import { ShipmentsService } from 'src/app/services/shipments.service';
 @Component({
   selector: 'app-shipment',
   templateUrl: './listShipment.component.html',
-  styleUrls: ['./listShipment.component.css'],
 })
 export class AppShipmentListComponent implements OnInit {
   shipmentId: number | null = null;
@@ -72,7 +71,7 @@ export class AppShipmentListComponent implements OnInit {
       this.shipmentService.deleteShipment(id).subscribe(
         () => {
           console.log('Envío eliminado con éxito. ID: ' + id);
-          location.reload();
+          // También puedes realizar alguna acción adicional después de eliminar el envío.
         },
         (error) => {
           console.error('Error al eliminar el envío: ', error);
