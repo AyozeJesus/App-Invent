@@ -1,10 +1,6 @@
 export interface User {
-  id: number;
   username: string;
-  name: string | null;
-  last_name: string | null;
-  address: string | null;
-  gender: string | null;
+  category: string;
+  email: string;
   password: string;
-  created_at: Date;
 }

@@ -1,0 +1,71 @@
+<mat-card class="my-card">
+  <mat-card-header>
+    <mat-card-title class="my-title">Lista de Usuarios</mat-card-title>
+    <mat-card-subtitle class="my-subtitle">
+      Esta página muestra trabajadores y administradores
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="category">
+      <h2>Trabajadores</h2>
+      <mat-table
+        [dataSource]="workers"
+        class="mat-elevation-z8 my-table full-width"
+      >
+        <!-- Columna de usuario -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef>Usuario</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.username }}</mat-cell>
+        </ng-container>
+
+        <!-- Columna de email -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
+        </ng-container>
+
+        <!-- Columna de fecha de creación -->
+        <ng-container matColumnDef="created_at">
+          <mat-header-cell *matHeaderCellDef>Fecha de Creación</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{
+            user.created_at | date
+          }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+
+    <div class="category">
+      <h2>Administradores</h2>
+      <mat-table
+        [dataSource]="administrators"
+        class="mat-elevation-z8 my-table full-width"
+      >
+        <!-- Columna de usuario -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef>Usuario</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.username }}</mat-cell>
+        </ng-container>
+
+        <!-- Columna de email -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
+        </ng-container>
+
+        <!-- Columna de fecha de creación -->
+        <ng-container matColumnDef="created_at">
+          <mat-header-cell *matHeaderCellDef>Fecha de Creación</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{
+            user.created_at | date
+          }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card-content>
+</mat-card>

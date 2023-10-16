@@ -1,0 +1,49 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-content>
+    <ul class="package-list">
+      <li class="package-list-item">
+        <strong>Paquete Ultra Ligero:</strong> Ideal para envíos extremadamente
+        pequeños y livianos. Económico.
+      </li>
+      <li class="package-list-item">
+        <strong>Paquete Ligero:</strong> Adecuado para artículos pequeños pero
+        un poco más pesados que los ultra ligeros.
+      </li>
+      <li class="package-list-item">
+        <strong>Paquete Estándar:</strong> Para paquetes con un peso dentro del
+        rango estándar.
+      </li>
+      <li class="package-list-item">
+        <strong>Paquete Pesado:</strong> Para envíos más pesados, con un precio
+        que incluye un recargo.
+      </li>
+      <li class="package-list-item">
+        <strong>Gran Volumen:</strong> Para paquetes pesados con un gran
+        volumen, con un precio basado en el peso excedente.
+      </li>
+    </ul>
+    <mat-table [dataSource]="packageData" class="mat-elevation-z8">
+      <ng-container matColumnDef="packageType">
+        <mat-header-cell *matHeaderCellDef>Tipo de Paquete</mat-header-cell>
+        <mat-cell *matCellDef="let package">{{ package.type }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="weightRange">
+        <mat-header-cell *matHeaderCellDef
+          >Intervalo de Peso (kg)</mat-header-cell
+        >
+        <mat-cell *matCellDef="let package">{{ package.weightRange }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="priceFormula">
+        <mat-header-cell *matHeaderCellDef
+          >Fórmula de Cálculo de Precio</mat-header-cell
+        >
+        <mat-cell *matCellDef="let package">{{
+          package.priceFormula
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

@@ -7,6 +7,11 @@
   <mat-card-content class="b-t-1">
     <mat-card class="b-1 shadow-none">
       <mat-card-content>
+        <p>
+          Introduce el ID del envío que quieras buscar para obtener toda la
+          información detallada
+        </p>
+        <p></p>
         <form (ngSubmit)="searchShipment()" #searchForm="ngForm">
           <mat-form-field>
             <input
@@ -20,36 +25,48 @@
           <button mat-button type="submit">Buscar</button>
         </form>
         <ng-container>
-          <ul>
-            <li>ID: {{ selectedShipment ? selectedShipment[0].id : "" }}</li>
+          <ul class="shipment-info-list">
             <li>
-              Destino:
+              <strong>ID: </strong>
+              {{ selectedShipment ? selectedShipment[0].id : "" }}
+            </li>
+            <li>
+              <strong>Destino: </strong>
               {{
                 selectedShipment ? selectedShipment[0].destination_address : ""
               }}
             </li>
             <li>
-              Código Postal:
+              <strong>Código Postal: </strong>
               {{ selectedShipment ? selectedShipment[0].postal_code : "" }}
             </li>
             <li>
-              Nombre del Destinatario:
+              <strong>Nombre del Destinatario: </strong>
               {{ selectedShipment ? selectedShipment[0].recipient_name : "" }}
             </li>
             <li>
-              Nombre del Remitente:
+              <strong>Nombre del Remitente: </strong>
               {{ selectedShipment ? selectedShipment[0].sender_name : "" }}
             </li>
             <li>
-              Peso: {{ selectedShipment ? selectedShipment[0].weight_kg : "" }}
+              <strong>Peso: </strong>
+              {{ selectedShipment ? selectedShipment[0].weight_kg : "" }}
             </li>
             <li>
-              Compañía de envío:
+              <strong>Compañía de envío: </strong>
               {{ selectedShipment ? selectedShipment[0].shipping_company : "" }}
             </li>
             <li>
-              Categoría del paquete:
+              <strong>Categoría del paquete: </strong>
               {{ selectedShipment ? selectedShipment[0].package_category : "" }}
+            </li>
+            <li>
+              <strong>Creado: </strong>
+              {{
+                selectedShipment
+                  ? (selectedShipment[0].created_at | date : "dd/MM/yyyy HH:mm")
+                  : ""
+              }}
             </li>
           </ul>
         </ng-container>
@@ -59,25 +76,43 @@
           }}
         </button>
         <div *ngIf="showAll">
-          <ul>
+          <ul class="shipment-info-list">
             <li *ngFor="let shipment of data">
               <ul>
-                <li>ID: {{ shipment.id }}</li>
-                <li>Destino: {{ shipment.destination_address }}</li>
-                <li>Código Postal: {{ shipment.postal_code }}</li>
-                <li>Nombre del Destinatario: {{ shipment.recipient_name }}</li>
-                <li>Nombre del Remitente: {{ shipment.sender_name }}</li>
-                <li>Peso: {{ shipment.weight_kg }}</li>
-                <li>Compañía de envío: {{ shipment.shipping_company }}</li>
-                <li>Categoría del paquete: {{ shipment.package_category }}</li>
+                <li><strong>ID: </strong>{{ shipment.id }}</li>
+                <li>
+                  <strong>Destino: </strong>{{ shipment.destination_address }}
+                </li>
+                <li>
+                  <strong>Código Postal: </strong>{{ shipment.postal_code }}
+                </li>
+                <li>
+                  <strong>Nombre del Destinatario: </strong
+                  >{{ shipment.recipient_name }}
+                </li>
+                <li>
+                  <strong>Nombre del Remitente: </strong
+                  >{{ shipment.sender_name }}
+                </li>
+                <li><strong>Peso: </strong>{{ shipment.weight_kg }}</li>
+                <li>
+                  <strong>Compañía de envío: </strong
+                  >{{ shipment.shipping_company }}
+                </li>
+                <li>
+                  <strong>Categoría del paquete: </strong
+                  >{{ shipment.package_category }}
+                </li>
+                <li>
+                  <strong>Creado: </strong>
+                  {{ shipment.created_at | date : "dd/MM/yyyy HH:mm" }}
+                </li>
                 <button
                   (click)="deleteShipment(shipment.id)"
                   class="delete-button"
                 >
                   Eliminar Envío
                 </button>
-                <br />
-                <br />
               </ul>
             </li>
           </ul>
