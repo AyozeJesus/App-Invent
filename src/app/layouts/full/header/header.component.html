@@ -6,10 +6,6 @@
 
   <span class="flex-1-auto"></span>
 
-  <!-- --------------------------------------------------------------- -->
-  <!-- profile Dropdown -->
-  <!-- --------------------------------------------------------------- -->
-
   <button
     mat-icon-button
     [matMenuTriggerFor]="profilemenu"
@@ -22,14 +18,9 @@
     />
   </button>
   <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-        ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >Mi perfil
-    </button>
-
     <div class="p-x-12 m-t-12">
       <a
+        (click)="logout()"
         [routerLink]="['/authentication/login']"
         mat-stroked-button
         color="primary"

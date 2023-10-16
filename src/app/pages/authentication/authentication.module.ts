@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 // icons
 import { TablerIconsModule } from 'angular-tabler-icons';
@@ -19,6 +20,7 @@ import { AppSideRegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
+    MatSelectModule,
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
     MatIconModule,
@@ -30,9 +32,6 @@ import { AppSideRegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
   ],
-  declarations: [
-    AppSideLoginComponent,
-    AppSideRegisterComponent,
-  ],
+  declarations: [AppSideLoginComponent, AppSideRegisterComponent],
 })
 export class AuthenticationModule {}

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Shipment } from '../models/shipments.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ShipmentsService {
-  private urlApi = 'http://localhost:3000'; // Cambia esto por la URL de tu API
+export class UserService {
+  private apiUrl = 'http://localhost:3000'; // Asegúrate de configurar la URL de tu API
 
   constructor(private http: HttpClient) {}
 
@@ -19,30 +19,34 @@ export class ShipmentsService {
     });
   }
 
-  createShipment(shipment: Shipment): Observable<Shipment> {
+  createUser(user: User): Observable<User> {
     // Utiliza las cabeceras con el token al hacer la solicitud
-    return this.http.post<Shipment>(`${this.urlApi}/shipments`, shipment, {
+    return this.http.post<User>(`${this.apiUrl}/user/register`, user, {
       headers: this.getHeaders(),
     });
   }
 
-  getShipmentById(id: number): Observable<Shipment> {
+  login(email: string, password: string): Observable<{ token: string }> {
+    const body = { email, password };
+    return this.http.post<{ token: string }>(`${this.apiUrl}/user/login`, body);
+  }
+
+  getUserById(userId: number): Observable<User> {
     // Utiliza las cabeceras con el token al hacer la solicitud
-    return this.http.get<Shipment>(`${this.urlApi}/shipments/${id}`, {
+    return this.http.get<User>(`${this.apiUrl}/users/${userId}`, {
       headers: this.getHeaders(),
     });
   }
 
-  deleteShipment(id: number): Observable<void> {
+  getUsersByCategory(category: string): Observable<User[]> {
     // Utiliza las cabeceras con el token al hacer la solicitud
-    return this.http.delete<void>(`${this.urlApi}/shipments/${id}`, {
+    return this.http.get<User[]>(`${this.apiUrl}/users/category/${category}`, {
       headers: this.getHeaders(),
     });
   }
-
-  listShipments(): Observable<Shipment[]> {
+  deleteUser(userId: number): Observable<void> {
     // Utiliza las cabeceras con el token al hacer la solicitud
-    return this.http.get<Shipment[]>(`${this.urlApi}/shipments`, {
+    return this.http.delete<void>(`${this.apiUrl}/users/${userId}`, {
       headers: this.getHeaders(),
     });
   }

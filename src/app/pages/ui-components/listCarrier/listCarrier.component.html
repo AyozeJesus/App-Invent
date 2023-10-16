@@ -1,0 +1,69 @@
+<div class="container">
+  <h2>Lista de Transportistas</h2>
+  <mat-table [dataSource]="carriers" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let carrier">{{ carrier.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+      <mat-cell *matCellDef="let carrier">
+        <ng-container
+          *ngIf="selectedCarrier === carrier; else displayCarrierName"
+        >
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [(ngModel)]="carrier.name"
+              placeholder="Nombre del transportista"
+            />
+          </mat-form-field>
+        </ng-container>
+        <ng-template #displayCarrierName>{{ carrier.name }}</ng-template>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let carrier">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="editCarrier(carrier)"
+        >
+          {{ selectedCarrier === carrier ? "Cancelar" : "Editar" }}
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="deleteCarrier(carrier.id)"
+        >
+          Eliminar
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          *ngIf="selectedCarrier === carrier"
+          (click)="saveCarrierChanges(carrier)"
+        >
+          Guardar
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+
+<div class="container">
+  <h2>Nuevo Transportista</h2>
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      [(ngModel)]="newCarrier.name"
+      placeholder="Nombre del transportista"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="createCarrier()">
+    Crear
+  </button>
+</div>

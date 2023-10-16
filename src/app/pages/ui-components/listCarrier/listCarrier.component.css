@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+}
+
+.container h2 {
+  margin-bottom: 100px;
+}
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
