@@ -50,6 +50,7 @@ export class FullComponent implements OnInit {
     this.isContentWidthFixed = false;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onSidenavOpenedChange(isOpened: boolean) {
     this.isCollapsedWidthFixed = !this.isOver;
   }

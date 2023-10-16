@@ -1,0 +1,92 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">
+      Aquí puedes localizar los envíos y obtener toda la información detallada:
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <mat-card class="b-1 shadow-none">
+      <mat-card-content>
+        <form (ngSubmit)="searchShipment()" #searchForm="ngForm">
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="shipmentId"
+              name="shipmentId"
+              placeholder="Buscar por ID"
+            />
+          </mat-form-field>
+          <button mat-button type="submit">Buscar</button>
+        </form>
+        <ng-container>
+          <ul>
+            <li>ID: {{ selectedShipment ? selectedShipment[0].id : "" }}</li>
+            <li>
+              Destino:
+              {{
+                selectedShipment ? selectedShipment[0].destination_address : ""
+              }}
+            </li>
+            <li>
+              Código Postal:
+              {{ selectedShipment ? selectedShipment[0].postal_code : "" }}
+            </li>
+            <li>
+              Nombre del Destinatario:
+              {{ selectedShipment ? selectedShipment[0].recipient_name : "" }}
+            </li>
+            <li>
+              Nombre del Remitente:
+              {{ selectedShipment ? selectedShipment[0].sender_name : "" }}
+            </li>
+            <li>
+              Peso: {{ selectedShipment ? selectedShipment[0].weight_kg : "" }}
+            </li>
+            <li>
+              Compañía de envío:
+              {{ selectedShipment ? selectedShipment[0].shipping_company : "" }}
+            </li>
+            <li>
+              Categoría del paquete:
+              {{ selectedShipment ? selectedShipment[0].package_category : "" }}
+            </li>
+          </ul>
+        </ng-container>
+        <button mat-raised-button (click)="toggleAllShipments()">
+          {{
+            showAll ? "Ocultar Todos los Envíos" : "Mostrar Todos los Envíos"
+          }}
+        </button>
+        <div *ngIf="showAll">
+          <ul>
+            <li *ngFor="let shipment of data">
+              <ul>
+                <li>ID: {{ shipment.id }}</li>
+                <li>Destino: {{ shipment.destination_address }}</li>
+                <li>Código Postal: {{ shipment.postal_code }}</li>
+                <li>Nombre del Destinatario: {{ shipment.recipient_name }}</li>
+                <li>Nombre del Remitente: {{ shipment.sender_name }}</li>
+                <li>Peso: {{ shipment.weight_kg }}</li>
+                <li>Compañía de envío: {{ shipment.shipping_company }}</li>
+                <li>Categoría del paquete: {{ shipment.package_category }}</li>
+                <button
+                  (click)="deleteShipment(shipment.id)"
+                  class="delete-button"
+                >
+                  Eliminar Envío
+                </button>
+                <br />
+                <br />
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="showInvalidInputMessage">
+          Por favor, ingrese un número entero positivo válido.
+        </div>
+        <div *ngIf="showNotFoundMessage">No se encontró el envío.</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

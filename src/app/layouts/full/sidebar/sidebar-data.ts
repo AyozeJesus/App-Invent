@@ -13,18 +13,37 @@ export const navItems: NavItem[] = [
     navCap: 'Envíos',
   },
   {
-    displayName: 'Localizar envío',
+    displayName: 'Envíos registrados',
     iconName: 'rosette',
-    route: '/ui-components/badge',
+    route: '/ui-components/list_shipment',
   },
   {
     displayName: 'Crear envío',
     iconName: 'poker-chip',
-    route: '/ui-components/chips',
+    route: '/ui-components/create_shipment',
   },
   {
-    displayName: 'Mostrar envíos',
-    iconName: 'list',
-    route: '/ui-components/lists',
+    navCap: 'Trabajadores',
+  },
+  {
+    displayName: 'Informacion',
+    iconName: 'users',
+    route: '/ui-components/create_shipment', //Añadir ruta para informacion de trabajadores
+  },
+  {
+    navCap: 'Paquetes',
+  },
+  {
+    displayName: 'Tipos de paquetes',
+    iconName: 'box',
+    route: '/ui-components/create_shipment', //Añadir ruta informacion de paquetes
+  },
+  {
+    navCap: 'Empresas externas',
+  },
+  {
+    displayName: 'Transportistas',
+    iconName: 'truck',
+    route: '/ui-components/create_shipment', //Añadir ruta informacion de paquetes
   },
 ];

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import {
   ApexChart,
@@ -78,13 +79,6 @@ export interface productsData {
 }
 
 // ecommerce card
-interface productcards {
-  id: number;
-  imgSrc: string;
-  title: string;
-  price: string;
-  rprice: string;
-}
 
 const ELEMENT_DATA: productsData[] = [
   {

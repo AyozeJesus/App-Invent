@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Input, OnChanges } from '@angular/core';
 import { NavItem } from './nav-item';
 import { Router } from '@angular/router';

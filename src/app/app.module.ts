@@ -5,9 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShipmentsComponent } from './shipments/components/shipments.component';
-import { UsersComponent } from './users/components/users.component';
-import { CarriersComponent } from './carriers/components/carriers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,10 +29,6 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    ShipmentsComponent,
-    UsersComponent,
-    CarriersComponent,
     FullComponent,
     BlankComponent,
     SidebarComponent,
