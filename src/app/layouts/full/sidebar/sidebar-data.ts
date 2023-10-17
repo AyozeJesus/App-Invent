@@ -15,12 +15,12 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Envíos registrados',
     iconName: 'rosette',
-    route: '/ui-components/list_shipment',
+    route: '/control-panel/list_shipment',
   },
   {
     displayName: 'Crear envío',
     iconName: 'poker-chip',
-    route: '/ui-components/create_shipment',
+    route: '/control-panel/create_shipment',
   },
   {
     navCap: 'Paquetes',
@@ -28,7 +28,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Tipos de paquetes',
     iconName: 'box',
-    route: '/ui-components/list_package', 
+    route: '/control-panel/list_package',
   },
   {
     navCap: 'Trabajadores',
@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Informacion',
     iconName: 'users',
-    route: '/ui-components/list_employee', 
+    route: '/control-panel/list_employee',
   },
   {
     navCap: 'Empresas externas',
@@ -44,6 +44,6 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Transportistas',
     iconName: 'truck',
-    route: '/ui-components/list_carrier', 
+    route: '/control-panel/list_carrier',
   },
 ];

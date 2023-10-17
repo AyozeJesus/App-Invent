@@ -21,9 +21,9 @@ const routes: Routes = [
           import('./pages/pages.module').then((m) => m.PagesModule),
       },
       {
-        path: 'ui-components',
+        path: 'control-panel',
         loadChildren: () =>
-          import('./pages/ui-components/ui-components.module').then(
+          import('./pages/control-panel/control-panel.module').then(
             (m) => m.UicomponentsModule
           ),
       },

@@ -22,7 +22,6 @@ Bienvenido a la aplicación INVENT.Invent es una aplicación de Angular que util
 
 - Angular: La plataforma de desarrollo en la que se basa la aplicación.
 - Angular Material: Un conjunto de componentes y directivas de interfaz de usuario para Angular.
-- Dotenv: Para cargar variables de entorno desde un archivo .env.
 - ESLint: Herramienta de análisis de código estático para mantener el código limpio y legible.
 
 ## Requisitos Previos
@@ -40,7 +39,7 @@ Clona este repositorio en tu máquina local:
 git clone https://github.com/AyozeJesus/App-Invent.git
 
 2. Navega hasta el directorio raíz del proyecto:
-   
+
 cd App-Invent
 
 3. Instala las dependencias del proyecto.
@@ -56,4 +55,3 @@ La aplicación estará disponible en http://localhost:4200/.
 ## Documentación de la API
 
 Para obtener más detalles sobre cómo interactuar con la API de Invent v1.0, consulta la documentación de la API.
-

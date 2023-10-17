@@ -7,20 +7,18 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000'; // Asegúrate de configurar la URL de tu API
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
-  // Función para obtener las cabeceras con el token de autorización
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
-      Authorization: `Bearer ${token}`, // Agrega el token a las cabeceras
+      Authorization: `Bearer ${token}`,
     });
   }
 
   createUser(user: User): Observable<User> {
-    // Utiliza las cabeceras con el token al hacer la solicitud
     return this.http.post<User>(`${this.apiUrl}/user/register`, user, {
       headers: this.getHeaders(),
     });
@@ -32,20 +30,17 @@ export class UserService {
   }
 
   getUserById(userId: number): Observable<User> {
-    // Utiliza las cabeceras con el token al hacer la solicitud
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`, {
       headers: this.getHeaders(),
     });
   }
 
   getUsersByCategory(category: string): Observable<User[]> {
-    // Utiliza las cabeceras con el token al hacer la solicitud
     return this.http.get<User[]>(`${this.apiUrl}/users/category/${category}`, {
       headers: this.getHeaders(),
     });
   }
   deleteUser(userId: number): Observable<void> {
-    // Utiliza las cabeceras con el token al hacer la solicitud
     return this.http.delete<void>(`${this.apiUrl}/users/${userId}`, {
       headers: this.getHeaders(),
     });

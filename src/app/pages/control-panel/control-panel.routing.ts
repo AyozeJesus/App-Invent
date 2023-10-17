@@ -1,15 +1,14 @@
 import { Routes } from '@angular/router';
 
-// ui
+// Control panel
 import { AppShipmentListComponent } from './listShipment/listShipment.component';
 import { AppShipmentCreateComponent } from './createShipment/createShipment.component';
 import { AppPackageListComponent } from './listPackage/listPackage.component';
 import { AppEmployeeListComponent } from './listEmployee/listEmployee.component';
 import { AppCarrierComponent } from './listCarrier/listCarrier.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
-AuthGuard;
 
-export const UiComponentsRoutes: Routes = [
+export const ControlPanelComponentsRoutes: Routes = [
   {
     path: '',
     children: [

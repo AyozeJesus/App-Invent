@@ -11,16 +11,14 @@ export class CarriersService {
 
   constructor(private http: HttpClient) {}
 
-  // Función para obtener las cabeceras con el token de autorización
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
-      Authorization: `Bearer ${token}`, // Agrega el token a las cabeceras
+      Authorization: `Bearer ${token}`,
     });
   }
 
   listCarriers(): Observable<Carrier[]> {
-    // Utiliza las cabeceras con el token al hacer la solicitud
     return this.http.get<Carrier[]>(`${this.urlApi}/carriers`, {
       headers: this.getHeaders(),
     });
