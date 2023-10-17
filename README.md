@@ -1,27 +1,59 @@
-# InventFrontend
+# Invent-APP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+Bienvenido a la aplicación INVENT.Invent es una aplicación de Angular que utiliza la API del panel de administración 1.0. Este es el panel de administración para la empresa intermediaria de envíos de mercancías llamada INVENT. Aquí puedes administrar envíos, empresas transportistas y otros aspectos de tu negocio.
 
-## Development server
+## Características Principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Autenticación**: La aplicación solo permite el acceso a usuarios autenticados. Los usuarios pueden ser administradores o trabajadores.
 
-## Code scaffolding
+- **Gestión de Listados**:
+  - **Tipos de paquete (Solo Lectura)**: Visualiza los tipos de paquetes disponibles.
+  - **Empresas transportistas (CRUD)**: Realiza operaciones de creación, lectura, actualización y eliminación de empresas transportistas.
+  - **Tipos de trabajadores (Solo Lectura)**: Visualiza los trabajadores de la empresa.
+  - **Envíos registrados**: Crea y gestiona envíos proporcionando detalles como dirección de destino, código postal, remitente, destinatario y peso del envío. El sistema elegirá automáticamente la empresa transportista encargada de realizar el envío y calculará el precio del servicio.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Notas Adicionales
 
-## Build
+1. La elección de la empresa transportista se basa en los dos primeros dígitos del código postal.
+2. La fórmula de cálculo de precio se aplica según la categoría del envío.
+3. La categoría del envío se aplica segun el intervalo de kg del paquete.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tecnologías Utilizadas
 
-## Running unit tests
+- Angular: La plataforma de desarrollo en la que se basa la aplicación.
+- Angular Material: Un conjunto de componentes y directivas de interfaz de usuario para Angular.
+- Dotenv: Para cargar variables de entorno desde un archivo .env.
+- ESLint: Herramienta de análisis de código estático para mantener el código limpio y legible.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Requisitos Previos
 
-## Running end-to-end tests
+Antes de ejecutar la aplicación, asegúrate de que tienes Node.js y Angular CLI instalados en tu sistema.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Configuración y Ejecución
 
-## Further help
+Para configurar y ejecutar la aplicación sigue los siguientes pasos:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clona este repositorio en tu máquina local:
+
+1. Clona este repositorio en tu máquina local.
+
+git clone https://github.com/AyozeJesus/App-Invent.git
+
+2. Navega hasta el directorio raíz del proyecto:
+   
+cd App-Invent
+
+3. Instala las dependencias del proyecto.
+
+- npm install
+
+4 Inicia la aplicación:
+
+- npm start
+
+La aplicación estará disponible en http://localhost:4200/.
+
+## Documentación de la API
+
+Para obtener más detalles sobre cómo interactuar con la API de Invent v1.0, consulta la documentación de la API.
+
